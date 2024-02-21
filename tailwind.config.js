@@ -1,7 +1,6 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
-import aspectratio from "@tailwindcss/aspect-ratio";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -21,5 +20,5 @@ export default {
         },
     },
 
-    plugins: [forms, typography, aspectratio],
+    plugins: [forms, typography],
 };

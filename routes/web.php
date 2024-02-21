@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ContactMeController;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 
 Route::name('web.')->group(function () {
     Route::get('/', function () {
@@ -32,6 +34,8 @@ Route::name('web.')->group(function () {
         ]);
     })->name('kontakt');
 });
+
+Route::post('/kontakt', [ContactMeController::class, 'build'])->name('contact.post')->middleware([HandlePrecognitiveRequests::class]);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
