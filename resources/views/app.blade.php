@@ -34,9 +34,9 @@
         } else {
         document.documentElement.classList.remove('dark')
         }
-        localStorage.theme = 'light'
-        localStorage.theme = 'dark'
-        localStorage.removeItem('theme')
+        // localStorage.theme = 'light'
+        // localStorage.theme = 'dark'
+        // localStorage.removeItem('theme')
         </script>
     </head>
     <body class="font-sans antialiased">
