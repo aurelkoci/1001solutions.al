@@ -237,12 +237,12 @@ const mobileMenuOpen = ref(false)
                             </button>
                             </Link>
 
-                            <Link :href="route('web.dokumentacion')" @click='mobileMenuOpen = false'
+                            <!-- <Link :href="route('web.dokumentacion')" @click='mobileMenuOpen = false'
                                 class="p-3 text-base font-medium rounded-md text-sky-900 hover:text-sky-700 hover:bg-sky-50 dark:hover:text-sky-900 dark:text-slate-50">
                             <button>
                                 Dokumentacion
                             </button>
-                            </Link>
+                            </Link> -->
                             <Link v-for="item in sherbime" :key="item.name" :href="route(item.href)"
                                 @click='mobileMenuOpen = false'
                                 class="p-3 text-base font-medium rounded-md text-sky-900 hover:text-sky-700 hover:bg-sky-50 dark:hover:text-sky-900 dark:text-slate-50">
