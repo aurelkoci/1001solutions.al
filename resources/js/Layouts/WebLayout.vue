@@ -135,8 +135,9 @@ defineProps({
 </script>
 
 <template>
+
     <Head>
-        <title>Canaj Lift</title>
+        <title>1001Solutions</title>
         <meta head-key="description" name="description" content="Montimi dhe instalim ashensori." />
         <link rel="icon" type="image/png" href="/favicon-32x32.png" />
     </Head>
@@ -144,7 +145,7 @@ defineProps({
 
 
     <Navbar :canLogin='canLogin'></Navbar>
-    <div class="relative w-full pt-10">
+    <div class="relative w-full">
         <slot></slot>
         <Footer></Footer>
     </div>

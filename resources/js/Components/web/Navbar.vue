@@ -123,16 +123,31 @@ const sherbime = [
 ]
 const mobileMenuOpen = ref(false)
 </script>
+
 <template>
-    <Popover class="fixed z-50 w-full bg-white dark:bg-slate-900">
-        <div class="px-4 mx-auto max-w-screen-2xl sm:px-6">
+    <Popover class="absolute z-50 w-full">
+        <div class="w-full px-4 mx-auto sm:px-6">
             <div class="flex items-center justify-between py-6 md:justify-start md:space-x-10">
-                <div class="flex justify-start lg:w-0 lg:flex-1">
+                <div class="flex items-center justify-start space-x-10 lg:w-0 lg:flex-1">
                     <Link href="/">
                     <span class="sr-only">1001Solutions</span>
-                    <img class="hidden w-auto h-8 dark:flex sm:h-10" src="logo1001.svg" alt="1001Solutions" />
-                    <img class="flex w-auto h-8 dark:hidden sm:h-10" src="logo1001.svg" alt="1001Solutions" />
+                    <img class="hidden w-auto h-8 dark:flex sm:h-10" src="img/Logo1001-min.svg" alt="1001Solutions" />
+                    <img class="flex w-auto h-8 dark:hidden sm:h-10" src="img/Logo1001-min.svg" alt="1001Solutions" />
                     </Link>
+                    <PopoverGroup class="hidden md:flex lg:gap-x-10">
+                        <Link :href="route('web.home')" class="hidden text-primary lg:flex" id='navbar_home'>Home</Link>
+                        <Dropdown emri='Produkte' :items='produkte' id='navbar_produkte' />
+                        <Dropdown emri='Sherbime' :items='sherbime' id='navbar_sherbime' />
+                        <!-- <Link :href="route('web.dokumentacion')" class="hidden text-primary lg:flex" id='navbar-dokumentacion'>
+                    Documentacion
+                    </Link> -->
+                        <Link :href="route('web.rethnesh')" class="hidden text-primary lg:flex" id='navbar-rethnesh'>
+                        Reth
+                        nesh
+                        </Link>
+                        <Link :href="route('web.kontakt')" class="text-primary" id='navbar-kontakt'>{{ $t('Kontakt') }}
+                        </Link>
+                    </PopoverGroup>
                 </div>
                 <div class="-my-2 -mr-2 md:hidden">
                     <button type="button" @click='mobileMenuOpen = true'
@@ -146,18 +161,7 @@ const mobileMenuOpen = ref(false)
                     </button>
 
                 </div>
-                <PopoverGroup class="hidden md:flex lg:gap-x-12">
-                    <Link :href="route('web.home')" class="hidden text-primary lg:flex" id='navbar_home'>Home</Link>
-                    <Dropdown emri='Produkte' :items='produkte' id='navbar_produkte' />
-                    <Dropdown emri='Sherbime' :items='sherbime' id='navbar_sherbime' />
-                    <!-- <Link :href="route('web.dokumentacion')" class="hidden text-primary lg:flex" id='navbar-dokumentacion'>
-                    Documentacion
-                    </Link> -->
-                    <Link :href="route('web.rethnesh')" class="hidden text-primary lg:flex" id='navbar-rethnesh'>Reth nesh
-                    </Link>
-                    <Link :href="route('web.kontakt')" class="text-primary" id='navbar-kontakt'>{{ $t('Kontakt') }}
-                    </Link>
-                </PopoverGroup>
+
                 <div class="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
                     <div class="relative">
                         <LocaleSwitcher></LocaleSwitcher>
@@ -167,8 +171,8 @@ const mobileMenuOpen = ref(false)
                             <Popover v-if="canLogin" class="relative">
                                 <Link v-if="$page.props.user" :href="route('dashboard')"
                                     class="text-base text-gray-700 dark:text-sky-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
                                 </svg>
